@@ -6,8 +6,9 @@ import 'package:recipe/app/data/services/recipe_service.dart';
 class HomeController extends GetxController {
   var recipes = [].obs;
   var isLoading = false.obs;
-  final RecipeService _recipeServices = RecipeService();
-  final AuthService authService = AuthService(); // ✅ AuthService untuk logout
+  final recipeService =
+      Get.find<RecipeService>(); // ✅ Ambil instance RecipeService
+  final authService = Get.find<AuthService>(); // ✅ Ambil instance AuthService
 
   @override
   void onInit() {
@@ -17,7 +18,7 @@ class HomeController extends GetxController {
 
   void fetchRecipes() async {
     isLoading.value = true;
-    var data = await _recipeServices.getAllRecipe();
+    var data = await recipeService.getAllRecipe();
     recipes.value = data;
     isLoading.value = false;
   }

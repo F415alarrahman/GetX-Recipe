@@ -4,7 +4,7 @@ import 'package:recipe/app/modules/home/controllers/home_controller.dart';
 import 'package:recipe/app/modules/recipe/views/recipe_view.dart';
 
 class HomeView extends StatelessWidget {
-  final HomeController homeController = Get.put(HomeController());
+  final homeController = Get.find<HomeController>();
 
   HomeView({super.key});
 

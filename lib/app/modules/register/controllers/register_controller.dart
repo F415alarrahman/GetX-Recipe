@@ -6,7 +6,7 @@ class RegisterController extends GetxController {
   //TODO: Implement RegisterController
   var isLoading = false.obs;
   var isAuthenticated = false.obs;
-  AuthService authService = AuthService();
+  final authService = Get.find<AuthService>();
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
